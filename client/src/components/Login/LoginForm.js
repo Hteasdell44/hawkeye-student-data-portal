@@ -28,9 +28,11 @@ export default function LoginForm() {
             password: formState.loginPassword,
         });
 
+        console.log(verifiedParent);
+
         if (verifiedParent) {
 
-            AuthService.login(verifiedParent);
+            AuthService.login(JSON.stringify(verifiedParent));
             
         } else {
 
