@@ -1,0 +1,36 @@
+[
+    {
+        "id": "8367393",
+        "firstName": "Justin",
+        "lastName": "Kennedy",
+        "grade": "Eighth"
+    },
+
+    {
+        "id": "8442394",
+        "firstName": "Rolando",
+        "lastName": "Jeffries",
+        "grade": "Seventh"
+    },
+
+    {
+        "id": "8023945",
+        "firstName": "Briana",
+        "lastName": "Kennedy",
+        "grade": "First"
+    },
+
+    {
+        "id": "8610934",
+        "firstName": "Mitch",
+        "lastName": "Long",
+        "grade": "Eleventh"
+    },
+
+    {
+        "id": "8878402",
+        "firstName": "Jaylen",
+        "lastName": "Rhodes",
+        "grade": "Twelfth"
+    }
+]

@@ -1,22 +1,22 @@
 const db = require('../config/connection');
-const { User, Product, BlogPost, Cart } = require('../models');
+const { Parent, Student } = require('../models')
 
-const userData = require('./data/userData.json');
-const productData = require('./data/productData.json');
-const blogData = require('./data/blogData.json');
-
-db.once('open', async () => {
-  await User.deleteMany({});
-  await Product.deleteMany({});
-  await Cart.deleteMany({});
-  await BlogPost.deleteMany({});
-
-  await User.insertMany(userData);
-  await Product.insertMany(productData);
-  await BlogPost.insertMany(blogData);
+const parentData = require('./data/parentData.json');
+const studentData = require('./data/studentData.json');
 
 
+const seedDB = async () => {
 
-  console.log('The Hush Puppy Company Database Has Been Seeded 🌱!');
+  await Parent.destroy({where: {}});
+  await Student.destroy({where: {}});
+
+  await Parent.bulkCreate(parentData);
+  await Student.bulkCreate(studentData);
+
+
+  console.log('The Hawkeye Student Data Portal Database Has Been Seeded 🦅!');
   process.exit(0);
-});
+
+}
+
+seedDB();

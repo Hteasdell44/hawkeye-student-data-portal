@@ -41,7 +41,7 @@ export default function SignupForm(){
 
         if (newParent) {
 
-            AuthService.login(newParent);
+            AuthService.login(JSON.stringify(newParent));
             
         } else {
 
