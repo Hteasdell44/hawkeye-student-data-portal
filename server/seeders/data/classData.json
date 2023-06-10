@@ -1,0 +1,36 @@
+[
+    {
+        "id": "123",
+        "name": "Physics 116"
+    },
+
+    {
+        "id": "124",
+        "name": "Math 111"
+    },
+
+    {
+        "id": "125",
+        "name": "Chemistry 301"
+    },
+
+    {
+        "id": "126",
+        "name": "English Lit 257"
+    },
+
+    {
+        "id": "127",
+        "name": "Physical Education"
+    },
+
+    {
+        "id": "128",
+        "name": "History 431"
+    },
+
+    {
+        "id": "129",
+        "name": "Health 102"
+    }
+]

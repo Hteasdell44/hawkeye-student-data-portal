@@ -52,9 +52,9 @@ export default function ParentHome() {
 
         <div id="login-container" className="flex flex-col h-screen items-center ">
 
-            <h1 className="mt-40 text-center text-4xl mb-8">Welcome, {currentParent.firstName} {currentParent.lastName}!</h1>
-            {data && data.length !== 0 && (<h2 className="text-center text-3xl mb-8">View Your Students:</h2>)}
-            {data && data.length == 0 && (<h2 className="text-center text-3xl mb-8">Click Below To Add Your Students:</h2>)}
+            <h1 className="mt-40 text-center text-4xl font-bold mb-8">Welcome, {currentParent.firstName} {currentParent.lastName}!</h1>
+            {data && data.length !== 0 && (<h2 className="text-center text-3xl font-bold mb-8">View Your Children:</h2>)}
+            {data && data.length == 0 && (<h2 className="text-center text-3xl mb-8">Click Below To Add Your Children:</h2>)}
 
             {data && data.map((student) => (
 

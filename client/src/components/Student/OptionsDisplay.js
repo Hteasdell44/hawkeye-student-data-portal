@@ -23,11 +23,11 @@ export default function OptionsDisplay() {
 
             <h1 className="mt-40 text-center text-4xl mb-28 font-bold">Would You Like To:</h1>
 
-            {data&& (<button className="bg-gold border-2 border-black p-10 text-2xl rounded-xl shadow-2xl mb-20 hover:scale-105">View {data.firstName}'s Classes</button>)}
+            {data && (<a href={`/student/${data.id}/classes`} className="bg-gold border-2 border-black p-10 text-2xl rounded-xl shadow-2xl mb-20 hover:scale-105">View {data.firstName}'s Classes</a>)}
 
             <h1 className="text-center text-4xl mb-20 font-bold">Or:</h1>
 
-            {data && (<button className="bg-gold border-2 border-black p-10 text-2xl rounded-xl shadow-2xl hover:scale-105">View {data.firstName}'s Behavior Report</button>)}
+            {data && (<a href={`/student/${data.id}/behavior`} className="bg-gold border-2 border-black p-10 text-2xl rounded-xl shadow-2xl hover:scale-105">View {data.firstName}'s Behavior Report</a>)}
 
         </div>
     );

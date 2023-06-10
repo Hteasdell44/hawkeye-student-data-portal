@@ -1,0 +1,36 @@
+[
+    {
+        "email": "Ewoodsworth@school.email.com",
+        "firstName": "Elaine",
+        "lastName": "Woodsworth",
+        "prefix": "Mrs."
+    },
+
+    {
+        "email": "Dalbright@school.email.com",
+        "firstName": "Dean",
+        "lastName": "Albright",
+        "prefix": "Mr."
+    },
+
+    {
+        "email": "Smedley@school.email.com",
+        "firstName": "Sue",
+        "lastName": "Medley",
+        "prefix": "Ms."
+    },
+
+    {
+        "email": "Sbosser@school.email.com",
+        "firstName": "Stevie",
+        "lastName": "Blosser",
+        "prefix": "Mrs."
+    },
+
+    {
+        "email": "Cvalcovich@school.email.com",
+        "firstName": "Chet",
+        "lastName": "Valcovich",
+        "prefix": "Mr."
+    }
+]

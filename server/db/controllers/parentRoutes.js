@@ -4,6 +4,10 @@ const auth = require('../../utils/auth');
 const Parent = require('../../models/Parent');
 const Student = require('../../models/Student');
 const ParentStudent = require('../../models/ParentStudent');
+const StudentClass = require('../../models/StudentClass');
+const Class = require('../../models/Class');
+const Teacher = require('../../models/Teacher');
+const { TeacherClass } = require('../../models');
 
 
 router.post('/signup', async (req, res) => {
@@ -99,8 +103,56 @@ router.post('/current-student', async (req, res) => {
 
 });
 
+router.post('/current-student-classes', async (req, res) => {
 
+  const studentsClasses = await StudentClass.findAll({ where: { studentId: req.body.studentId }});
 
+  let classArr = [];
 
+  if (studentsClasses.length == 0) { 
+    
+    res.send(classArr)
+    return;
+  }
+
+  for (let i = 0; i < studentsClasses.length; i++) {
+   
+    classArr[i] = await Class.findOne({ where: { id: studentsClasses[i].dataValues.classId }});
+  }
+
+  res.send(classArr);
+
+});
+
+router.post('/current-student-classes-teachers', async (req, res) => {
+
+  const studentsClasses = await StudentClass.findAll({ where: { studentId: req.body.studentId }});
+  console.log(studentsClasses);
+
+  let classArr = [];
+
+  for (let i = 0; i < studentsClasses.length; i++) {
+   
+    classArr[i] = await Class.findOne({ where: { id: studentsClasses[i].dataValues.classId }});
+  }
+
+  let teacherArr = [];
+
+  if (classArr.length == 0) {
+
+    res.send(teacherArr);
+    return;
+  }
+
+  for (let i = 0; i < classArr.length; i++) {
+
+    const teacherRef = await TeacherClass.findOne({ where: { classId: classArr[i].id }});
+    teacherArr[i] = await Teacher.findOne({ where: { email: teacherRef.dataValues.teacherEmail }});
+
+  }
+
+  res.send(teacherArr);
+
+});
 
 module.exports = router;
