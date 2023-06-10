@@ -8,6 +8,8 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import ParentOptions from "./pages/ParentOptions";
+import StudentBehavior from "./pages/StudentBehavior";
+import ClassCatalog from "./pages/ClassCatalog";
 
 document.title = "Hawkeye Student Data Portal";
 
@@ -33,7 +35,11 @@ const App = () => {
 
                         <Route path="/home" element={<Home />} />    
 
-                        <Route path="/student/:id" element={<ParentOptions />} />                   
+                        <Route path="/student/:id" element={<ParentOptions />} /> 
+
+                        <Route path="/student/:id/behavior" element={<StudentBehavior />} />
+
+                        <Route path="/student/:id/classes" element={<ClassCatalog />} />                  
 
                     </Routes>
 

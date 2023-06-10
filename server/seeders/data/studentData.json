@@ -3,34 +3,39 @@
         "id": "8367393",
         "firstName": "Justin",
         "lastName": "Kennedy",
-        "grade": "Eighth"
+        "grade": "Eighth",
+        "behaviorReport": "has been performing well lately on his assignments. He could benefit from some extra advanced work outside of class." 
     },
 
     {
         "id": "8442394",
         "firstName": "Rolando",
         "lastName": "Jeffries",
-        "grade": "Seventh"
+        "grade": "Seventh",
+        "behaviorReport": "has been sleeping in class lately. This behavior must stop."
     },
 
     {
         "id": "8023945",
         "firstName": "Briana",
         "lastName": "Kennedy",
-        "grade": "First"
+        "grade": "First",
+        "behaviorReport": "is a jewel. Everyone loves her!"
     },
 
     {
         "id": "8610934",
         "firstName": "Mitch",
         "lastName": "Long",
-        "grade": "Eleventh"
+        "grade": "Eleventh",
+        "behaviorReport": "is showing major signs of improvement this year!"
     },
 
     {
         "id": "8878402",
         "firstName": "Jaylen",
         "lastName": "Rhodes",
-        "grade": "Twelfth"
-    }
+        "grade": "Twelfth",
+        "behaviorReport": "is doing well, and in a great position approaching graduation."
+    } 
 ]
