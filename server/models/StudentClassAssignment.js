@@ -19,6 +19,11 @@ StudentClassAssignment.init(
     assignmentId: {
         type: DataTypes.INTEGER,
         allowNull: false,
+    },
+
+    assignmentGrade: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
     }
   },
 

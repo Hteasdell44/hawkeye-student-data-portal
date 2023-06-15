@@ -6,16 +6,16 @@ class Assignment extends Model {}
 
 Assignment.init(
   {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true, 
+    },
+
     name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-
-    grade: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    }
-
   },
 
   {
