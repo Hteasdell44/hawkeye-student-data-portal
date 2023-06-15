@@ -1,14 +1,13 @@
 const router = require('express').Router();
 const auth = require('../../utils/auth');
-
+const { Op } = require('sequelize');
 const Parent = require('../../models/Parent');
 const Student = require('../../models/Student');
 const ParentStudent = require('../../models/ParentStudent');
 const StudentClass = require('../../models/StudentClass');
 const Class = require('../../models/Class');
 const Teacher = require('../../models/Teacher');
-const { TeacherClass } = require('../../models');
-
+const { TeacherClass, StudentClassAssignment, Assignment } = require('../../models');
 
 router.post('/signup', async (req, res) => {
 
@@ -152,6 +151,27 @@ router.post('/current-student-classes-teachers', async (req, res) => {
   }
 
   res.send(teacherArr);
+
+});
+
+router.post('/get-student-assignments', async (req, res) => {
+
+  let assignmentsList = [];
+
+  const assignmentRefs = await StudentClassAssignment.findAll({ where: { [Op.and]: [
+    { studentId: req.body.studentId },
+    { classId: req.body.classId }
+  ]}});
+
+  for (let i = 0; i < assignmentRefs.length; i++) {
+
+    const currentAssignment = await Assignment.findOne( { where: { id: assignmentRefs[i].dataValues.assignmentId }});
+    const assignmentGrade = assignmentRefs[i].dataValues.assignmentGrade;
+
+    assignmentsList[i] = {assignment: currentAssignment, assignmentGrade: assignmentGrade };
+  }
+
+  res.send(assignmentsList);
 
 });
 

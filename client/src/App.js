@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import ParentOptions from "./pages/ParentOptions";
 import StudentBehavior from "./pages/StudentBehavior";
 import ClassCatalog from "./pages/ClassCatalog";
+import AssignmentList from "./pages/AssignmentList";
 
 document.title = "Hawkeye Student Data Portal";
 
@@ -40,6 +41,8 @@ const App = () => {
                         <Route path="/student/:id/behavior" element={<StudentBehavior />} />
 
                         <Route path="/student/:id/classes" element={<ClassCatalog />} />                  
+
+                        <Route path="/student/:id/classes/:classId" element={<AssignmentList/>} />                  
 
                     </Routes>
 
