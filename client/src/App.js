@@ -11,6 +11,8 @@ import ParentOptions from "./pages/ParentOptions";
 import StudentBehavior from "./pages/StudentBehavior";
 import ClassCatalog from "./pages/ClassCatalog";
 import AssignmentList from "./pages/AssignmentList";
+import TeacherLogin from "./pages/TeacherLogin";
+import TeacherSignup from "./pages/TeacherSignup";
 
 document.title = "Hawkeye Student Data Portal";
 
@@ -43,6 +45,10 @@ const App = () => {
                         <Route path="/student/:id/classes" element={<ClassCatalog />} />                  
 
                         <Route path="/student/:id/classes/:classId" element={<AssignmentList/>} />                  
+
+                        <Route path="/teacher-login" element={<TeacherLogin />} />                  
+
+                        <Route path="/teacher-signup" element={<TeacherSignup />} />
 
                     </Routes>
 

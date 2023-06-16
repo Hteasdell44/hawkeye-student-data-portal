@@ -42,6 +42,7 @@ export default function SignupForm(){
         if (newParent) {
 
             AuthService.login(JSON.stringify(newParent));
+            window.location.assign('/home');
             
         } else {
 
@@ -123,6 +124,8 @@ export default function SignupForm(){
 
             <div class="text-center">
                     <p>Already Have An Account? <a href="/" className="text-gold underline">Login Now</a></p>
+                    <p className="mt-5">Are You A Teacher? <a href="/teacher-login" className="text-gold underline">Login Now</a></p>
+
                     {signupError && (<div className="p-3 text-red-600">{signupError}</div>)}
             </div>       
 

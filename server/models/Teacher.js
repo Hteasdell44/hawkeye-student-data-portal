@@ -26,6 +26,13 @@ Teacher.init(
     prefix: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    oneTimePassword: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    password: {
+      type: DataTypes.STRING,
     }
   },
 

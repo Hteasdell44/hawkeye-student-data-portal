@@ -3,34 +3,42 @@
         "email": "Ewoodsworth@school.email.com",
         "firstName": "Elaine",
         "lastName": "Woodsworth",
-        "prefix": "Mrs."
+        "prefix": "Mrs.",
+        "oneTimePassword": "17Zq9(3rTrc"
     },
 
     {
         "email": "Dalbright@school.email.com",
         "firstName": "Dean",
         "lastName": "Albright",
-        "prefix": "Mr."
+        "prefix": "Mr.",
+        "oneTimePassword": "87yU09#uey"
     },
 
     {
         "email": "Smedley@school.email.com",
         "firstName": "Sue",
         "lastName": "Medley",
-        "prefix": "Ms."
+        "prefix": "Ms.",
+        "oneTimePassword": "0Popf$232"
+
     },
 
     {
         "email": "Sbosser@school.email.com",
         "firstName": "Stevie",
         "lastName": "Blosser",
-        "prefix": "Mrs."
+        "prefix": "Mrs.",
+        "oneTimePassword": "q?94pOcEe"
+
     },
 
     {
         "email": "Cvalcovich@school.email.com",
         "firstName": "Chet",
         "lastName": "Valcovich",
-        "prefix": "Mr."
+        "prefix": "Mr.",
+        "oneTimePassword": "S1Wo$Cve-q"
+
     }
 ]

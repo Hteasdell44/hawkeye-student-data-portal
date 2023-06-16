@@ -9,6 +9,20 @@ const Class = require('../../models/Class');
 const Teacher = require('../../models/Teacher');
 const { TeacherClass, StudentClassAssignment, Assignment } = require('../../models');
 
+router.post('/determine-user-type', async (req, res) => {
+
+  const isParent = await Parent.findOne({ where: { email: req.body.email }});
+
+  if (!isParent) {
+
+    res.send("teacher");
+    return;
+  }
+
+  res.send("parent");
+  
+});
+
 router.post('/signup', async (req, res) => {
 
     const userExists = await Parent.findOne({ where: { email: req.body.email }});
