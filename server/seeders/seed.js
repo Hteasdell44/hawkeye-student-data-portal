@@ -27,7 +27,7 @@ const seedDB = async () => {
   await StudentClass.destroy({where: {}});
   await TeacherClass.destroy({where: {}});
   await Assignment.destroy({where: {}});
-  // await StudentClassAssignment.destroy({where: {}});
+  await StudentClassAssignment.destroy({where: {}});
 
   // Create Parents, Students, Classes, And Teachers From Imported Data
 

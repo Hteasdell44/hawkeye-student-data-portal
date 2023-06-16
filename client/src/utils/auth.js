@@ -1,6 +1,16 @@
 import decode from 'jwt-decode';
 
 class AuthService {
+
+	isJWT(token) {
+		try {
+		  const decoded = decode(token);
+		  return decoded !== null;
+		} catch (error) {
+		  return false;
+		}
+	}
+
 	getProfile() {
 		return decode(this.getToken());
 	}
@@ -30,8 +40,6 @@ class AuthService {
 	login(idToken) {
 		// Saves user token to localStorage
 		localStorage.setItem('id_token', idToken);
-
-		window.location.assign('/home');
 	}
 
 	logout() {

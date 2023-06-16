@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import axios from 'axios';
 import AuthService from "../../utils/auth.js";
 
-export default function LoginForm() {
+export default function TeacherLoginForm() {
 
     if (AuthService.loggedIn()) {
-        window.location.assign("/home");
+        window.location.assign("/teacher/home");
     }
 
     const [formState, setFormState] = useState({ loginEmail: "", loginPassword: "" });
@@ -23,23 +23,26 @@ export default function LoginForm() {
 
         event.preventDefault();
 
-        const verifiedParent = await axios.post('/', {
+        const verifiedTeacher = await axios.post('/teacher/login', {
             email: formState.loginEmail.toLowerCase(),
             password: formState.loginPassword,
         });
 
-        console.log(verifiedParent);
+        if (AuthService.isJWT(verifiedTeacher.data)) {
 
-        if (verifiedParent) {
+            AuthService.login(JSON.stringify(verifiedTeacher.data));
+            window.location.assign('/teacher/home');
+            return;
+        }
 
-            AuthService.login(JSON.stringify(verifiedParent));
-            window.location.assign('/home');
-            
-        } else {
+        else if (typeof(JSON.stringify(verifiedTeacher.data)) == "string") {
 
-            setLoginError("Error logging in...");
+            setLoginError(verifiedTeacher.data);
+            return;
 
         }
+
+        setLoginError("Error logging in...");
     };
     
     return(
@@ -48,7 +51,7 @@ export default function LoginForm() {
 
             <form class="border-black border-4 rounded-lg w-auto xl:w-3/5 p-10 mx-auto mb-5 shadow-lg" onSubmit={handleLoginSubmit}>
 
-                <h1 className="text-center text-4xl mb-8">Login</h1>
+                <h1 className="text-center text-4xl mb-8">Teacher Login</h1>
 
                 <div class="md:flex md:items-center mb-6">
 
@@ -82,12 +85,13 @@ export default function LoginForm() {
             </form>
 
             <div class="text-center">
-                    <p>Don't Have An Account? <a href="/signup" className="text-gold underline">Sign Up Now</a></p>
+                    <p>Haven't Verified Your Account? <a href="/teacher-signup" className="text-gold underline">Sign Up Now</a></p>
             </div>
 
 
             <div class="text-center mt-5">
-                    <p>Are You A Teacher? <a href="/teacher-login" className="text-gold underline">Login Here</a></p>
+                    <p>Are You A Parent? <a href="/" className="text-gold underline">Login Here</a></p>
+                    {loginError && (<div className="p-3 text-red-600">{loginError}</div>)}
             </div>
 
         </div>
