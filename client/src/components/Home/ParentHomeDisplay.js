@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useQuery } from 'react-query';
 
-export default function ParentHome() {
+export default function ParentHomeDisplay() {
 
     const currentParent = AuthService.getProfile().data;
 
