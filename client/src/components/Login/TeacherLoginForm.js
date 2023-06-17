@@ -85,7 +85,7 @@ export default function TeacherLoginForm() {
             </form>
 
             <div class="text-center">
-                    <p>Haven't Verified Your Account? <a href="/teacher-signup" className="text-gold underline">Sign Up Now</a></p>
+                    <p>Haven't Verified Your Account? <a href="/teacher/signup" className="text-gold underline">Sign Up Now</a></p>
             </div>
 
 

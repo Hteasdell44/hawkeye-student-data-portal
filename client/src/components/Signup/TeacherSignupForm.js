@@ -6,7 +6,7 @@ export default function TeacherSignupForm(){
 
     if (AuthService.loggedIn()) {
 
-        window.location.assign("/teacher-home");
+        window.location.assign("/teacher/home");
     }
     const [showPasswordUpdateForm, setShowPasswordUpdateForm] = useState(false);
     const [otpFormState, setotpFormState] = useState({ email: "", oneTimePassword: "" });
@@ -174,7 +174,7 @@ export default function TeacherSignupForm(){
                     </form>)}
 
             <div class="text-center">
-                    <p>Already Verified Your Account? <a href="/teacher-login" className="text-gold underline">Login Now</a></p>
+                    <p>Already Verified Your Account? <a href="/teacher/login" className="text-gold underline">Login Now</a></p>
                     {signupError && (<div className="p-3 text-red-600">{signupError}</div>)}
             </div> 
 

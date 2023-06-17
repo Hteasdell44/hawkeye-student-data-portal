@@ -28,18 +28,21 @@ export default function LoginForm() {
             password: formState.loginPassword,
         });
 
-        console.log(verifiedParent);
+        console.log(verifiedParent.data);
 
-        if (verifiedParent) {
+        if (AuthService.isJWT(verifiedParent.data)) {
 
-            AuthService.login(JSON.stringify(verifiedParent));
+            AuthService.login(JSON.stringify(verifiedParent.data));
             window.location.assign('/home');
+            return;
             
-        } else {
+        } else if (typeof(JSON.stringify(verifiedParent.data)) == "string"){
 
-            setLoginError("Error logging in...");
-
+            setLoginError(verifiedParent.data);
+            return;
         }
+
+        setLoginError("Error logging in...");
     };
     
     return(
@@ -87,7 +90,8 @@ export default function LoginForm() {
 
 
             <div class="text-center mt-5">
-                    <p>Are You A Teacher? <a href="/teacher-login" className="text-gold underline">Login Here</a></p>
+                    <p>Are You A Teacher? <a href="/teacher/login" className="text-gold underline">Login Here</a></p>
+                    {loginError && (<div className="p-3 text-red-600">{loginError}</div>)}
             </div>
 
         </div>

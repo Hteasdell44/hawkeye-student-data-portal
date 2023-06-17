@@ -80,5 +80,88 @@ router.post('/login', async (req, res) => {
 
 });
 
+router.post('/classes', async (req, res) => {
+
+    let classArr = [];
+
+    const classRefList = await TeacherClass.findAll({ where: { teacherEmail: req.body.teacherEmail }});
+
+    for (let i = 0; i < classRefList.length; i++) {
+
+        classArr[i] = await Class.findOne({ where: { id: classRefList[i].classId }});
+    }
+
+    res.send(classArr);
+
+});
+
+router.post('/current-class-name', async (req, res) => {
+
+    const currentClassName = await Class.findOne({ where: { id: req.body.classId }});
+
+    res.send(currentClassName.name);
+});
+
+router.post('/current-classes-students', async (req, res) => {
+
+    let studentArr = [];
+    
+    const studentRefs = await StudentClass.findAll({ where: { classId: req.body.classId}});
+
+    for (let i = 0; i < studentRefs.length; i++) {
+
+        studentArr[i] = await Student.findOne({ where: { id: studentRefs[i].dataValues.studentId }});
+    }
+
+    res.send(studentArr);
+});
+
+router.post('/update-behavior-report', async (req, res) => {
+    
+    const currentStudent = await Student.findOne({ where: { id: req.body.studentId}});
+
+    await currentStudent.update({ behaviorReport: req.body.newBehaviorReport })
+
+    res.send(currentStudent);
+});
+
+router.post('/current-assignment', async (req, res) => {
+    
+    const currentAssignmentRef = await StudentClassAssignment.findOne({ where: { [Op.and]: [
+        { studentId: req.body.studentId },
+        { classId: req.body.classId }
+      ]}});
+
+    const grade = currentAssignmentRef.dataValues.assignmentGrade;
+
+    const currentAssignmentNameRef = await Assignment.findOne({ where: { id: req.body.assignmentId }});
+
+    const currentAssignmentName = currentAssignmentNameRef.dataValues.name;
+
+    res.send({ name: currentAssignmentName, grade: grade});
+});
+
+router.post('/update-assignment-name', async (req, res) => {
+    
+    const currentAssignment = await Assignment.findOne({ where: { id: req.body.assignmentId }});
+
+    await currentAssignment.update({ name: req.body.newAssignmentName });
+
+    res.send(currentAssignment);
+});
+
+router.post('/update-assignment-grade', async (req, res) => {
+    
+    const currentAssignmentRef = await StudentClassAssignment.findOne({ where: { [Op.and]: [
+        { studentId: req.body.studentId },
+        { classId: req.body.classId },
+        { assignmentId: req.body.assignmentId }
+      ]}});
+
+      await currentAssignmentRef.update({ assignmentGrade: req.body.newAssignmentGrade });
+
+      res.send(currentAssignmentRef);
+});
+
 
 module.exports = router;

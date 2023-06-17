@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
   const userExists = await Parent.findOne({ where: { email: req.body.email }});
 
     if (!userExists) {
-      console.log('No user found with that email!');
+      res.send("No parent found with that email...");
       return;
     }
 
@@ -57,7 +57,7 @@ router.post('/', async (req, res) => {
     }
 
     if (!userExists.checkPassword(req.body.password)) {
-      console.log('Your password is incorrect!');
+      res.send('Your password is incorrect!');
       return;
     }
 
