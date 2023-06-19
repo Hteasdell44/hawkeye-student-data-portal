@@ -13,8 +13,6 @@ router.post('/verify-otp', async (req, res) => {
 
     const currentTeacher = await Teacher.findOne({ where: { email: req.body.email }});
 
-    console.log(req.body)
-
     if (!currentTeacher) {
 
         res.send(false);
@@ -129,7 +127,8 @@ router.post('/current-assignment', async (req, res) => {
     
     const currentAssignmentRef = await StudentClassAssignment.findOne({ where: { [Op.and]: [
         { studentId: req.body.studentId },
-        { classId: req.body.classId }
+        { classId: req.body.classId },
+        { assignmentId: req.body.assignmentId }
       ]}});
 
     const grade = currentAssignmentRef.dataValues.assignmentGrade;
@@ -163,5 +162,20 @@ router.post('/update-assignment-grade', async (req, res) => {
       res.send(currentAssignmentRef);
 });
 
+router.post('/add-new-assignment', async (req, res) => {
+    
+    const newAssignment = await Assignment.create({ name: req.body.newAssignmentName });
+
+    const assignmentId = newAssignment.dataValues.id;
+
+    const currentClassRefList = await StudentClass.findAll({ where: { classId: req.body.classId }});
+
+    for (let i = 0; i < currentClassRefList.length; i++) {
+
+        await StudentClassAssignment.create({ studentId: currentClassRefList[i].dataValues.studentId, classId: req.body.classId, assignmentId: assignmentId});
+    }
+
+    res.send();
+});
 
 module.exports = router;

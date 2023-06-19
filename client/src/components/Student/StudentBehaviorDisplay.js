@@ -23,7 +23,7 @@ export default function StudentBehaviorDisplay() {
 
             {data && (<h1 className="mt-40 text-center text-4xl mb-28 font-bold">{data.firstName}'s Behavior Report</h1>)}
 
-            {data && (<p>{data.firstName} {data.behaviorReport}</p>)}
+            {data && (<p className="w-4/5 text-2xl border-2 border-black p-4 rounded-xl shadow-xl text-center xl:w-1/4 ">{data.firstName} {data.behaviorReport}</p>)}
 
         </div>
 

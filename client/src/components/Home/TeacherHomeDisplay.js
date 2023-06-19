@@ -1,5 +1,4 @@
 import AuthService from "../../utils/auth";
-import { useState } from "react";
 import axios from "axios";
 import { useQuery } from 'react-query';
 
@@ -20,7 +19,7 @@ export default function TeacherHomeDisplay() {
 
     return(
 
-        <div id="login-container" className="flex flex-col h-screen items-center ">
+        <div id="login-container" className="flex flex-col min-h-screen items-center ">
 
             <h1 className="mt-40 text-center text-4xl font-bold mb-8">Welcome, {currentTeacher.firstName} {currentTeacher.lastName}!</h1>
 
@@ -30,13 +29,14 @@ export default function TeacherHomeDisplay() {
 
             {data && data.map((item) => (
 
-                <a href={`/teacher/${item.id}`} className="border-2 border-black mb-8 p-10 rounded-xl shadow-xl hover:scale-105">
+                <a href={`/teacher/${item.id}`} className="w-4/5 text-center text-xl border-2 border-black mb-8 p-10 rounded-xl shadow-xl hover:scale-105 xl:w-1/4">
 
                     <div key={item.id}>
 
-                        <div className="">
+                        <div className="font-bold">
                     
-                            <h1>{item.name} - Section {item.id}</h1>
+                            <h1>{item.name}</h1>
+                            <h1 className="mt-2"><span className="text-gray-400">Section {item.id}</span></h1>
                     
                         </div>
 

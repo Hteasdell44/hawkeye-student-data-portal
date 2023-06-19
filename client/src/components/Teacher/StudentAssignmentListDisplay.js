@@ -41,32 +41,52 @@ export default function StudentAssignmentListDisplay() {
     const calculateAverage = () => {
 
         let sum = 0;
+        let totalElements = 0;
 
         for (let i = 0; i < assignmentList.data.length; i++) {
 
-            sum += assignmentList.data[i].assignmentGrade;
+            if (assignmentList.data[i].assignmentGrade !== null ) {
+
+                sum += assignmentList.data[i].assignmentGrade;
+                totalElements++;
+            }
+    
         }
 
-        const avg = sum / assignmentList.data.length;
+        const avg = sum / totalElements;
 
-        return avg.toFixed(2);
+        return avg.toFixed();
+    }
+
+    const getAssignmentGrade = (item) => {
+
+        const grade = item.assignmentGrade;
+
+        if (grade == null) {
+            return '--'
+        }
+
+        return grade;
     }
 
     return(
 
-         <div className="flex flex-col h-screen items-center ">
+         <div className="flex flex-col min-h-screen items-center">
 
-            {currentStudent && currentClassName && (<h1 className="mt-40 text-center text-4xl mb-28 font-bold">{currentStudent.firstName}'s {currentClassName} Assignments:</h1>)}
+            {currentStudent && currentClassName && (<h1 className="mt-40 text-center text-4xl mb-8 font-bold">{currentStudent.firstName}'s {currentClassName} Assignments:</h1>)}
+
+            {assignmentList && (<h1 className="w-4/5 text-center font-bold text-xl border-2 border-gold p-10 rounded-xl shadow-xl mb-8 xl:w-1/4">Cumulative Grade: {calculateAverage()}%</h1>)}
 
             {assignmentList && assignmentList.data.map((item, i) => (
 
-                <a href={`/teacher/${classId}/${studentId}/assignments/${item.assignment.id}`} className="border-2 border-black mb-8 p-10 rounded-xl shadow-xl hover:scale-105">
+                <a href={`/teacher/${classId}/${studentId}/assignments/${item.assignment.id}`} className="w-4/5 text-center border-2 border-black mb-8 p-10 rounded-xl shadow-xl hover:scale-105 xl:w-1/4">
 
                     <div key={item.assignment.id}>
 
                         <div className="">
                     
-                            <h1>{item.assignment.name} - {item.assignmentGrade}</h1>
+                            <h1 className="font-bold text-xl">{item.assignment.name}</h1>
+                            <h1 className="font-bold text-xl mt-2"><span>{getAssignmentGrade(item)}%</span></h1>
                             
                         </div>
 
@@ -75,7 +95,6 @@ export default function StudentAssignmentListDisplay() {
                 </a>
             ))}
 
-        {assignmentList && (<h1>{calculateAverage()}</h1>)}
 
         </div>
 

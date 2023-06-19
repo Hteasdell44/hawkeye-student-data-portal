@@ -49,34 +49,34 @@ export default function LoginForm() {
 
         <div id="login-container" className="flex flex-col h-screen items-center justify-center">
 
-            <form class="border-black border-4 rounded-lg w-auto xl:w-3/5 p-10 mx-auto mb-5 shadow-lg" onSubmit={handleLoginSubmit}>
+            <form class="border-black border-4 font-bold rounded-xl shadow-xl w-auto xl:w-3/5 p-10 mx-auto mb-5 shadow-lg" onSubmit={handleLoginSubmit}>
 
-                <h1 className="text-center text-4xl mb-8">Login</h1>
+                <h1 className="text-center text-4xl mb-8">Parent Login</h1>
 
                 <div class="md:flex md:items-center mb-6">
 
                     <div class="md:w-1/5">
-                        <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">Email</label>
+                        <label class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">Email</label>
                     </div>
 
                     <div class="md:w-2/3">
-                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="email" name="loginEmail" placeholder="Example@email.com" onChange={handleChange} />
+                        <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gold" type="email" name="loginEmail" placeholder="Example@email.com" onChange={handleChange} />
                     </div>
                 </div>
 
                 <div class="md:flex md:items-center mb-6">
 
                     <div class="md:w-1/5">
-                        <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">Password</label>
+                        <label class="block text-black font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">Password</label>
                     </div>
 
                     <div class="md:w-2/3">
-                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="password" name="loginPassword" placeholder="******************" onChange={handleChange} />
+                        <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gold" type="password" name="loginPassword" placeholder="******************" onChange={handleChange} />
                     </div>
 
                 </div>
 
-                <button class="shadow bg-gold hover:bg-gold focus:shadow-outline focus:outline-none text-black font-bold py-2 px-4 rounded w-4/5 block mx-auto bg-gold" type="submit">
+                <button class="text-xl border-2 border-black shadow-xl bg-gold hover:bg-gold focus:shadow-outline focus:outline-none text-black font-bold py-2 px-4 rounded-xl w-4/5 block mx-auto bg-gold hover:scale-105" type="submit">
                     Login
                 </button>
 
@@ -84,12 +84,12 @@ export default function LoginForm() {
 
             </form>
 
-            <div class="text-center">
+            <div class="text-center font-bold">
                     <p>Don't Have An Account? <a href="/signup" className="text-gold underline">Sign Up Now</a></p>
             </div>
 
 
-            <div class="text-center mt-5">
+            <div class="text-center mt-5 font-bold ">
                     <p>Are You A Teacher? <a href="/teacher/login" className="text-gold underline">Login Here</a></p>
                     {loginError && (<div className="p-3 text-red-600">{loginError}</div>)}
             </div>

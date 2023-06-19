@@ -32,15 +32,15 @@ export default function Nav() {
 
                 <header>
         
-                        <nav class="fixed flex w-screen h-auto items-center justify-between flex-wrap bg-black p-3">
+                        <nav class="fixed flex w-screen h-auto items-center justify-between flex-wrap bg-black p-3 font-bold">
         
-                                <button className="absolute left-5 text-black bg-gold p-2 rounded-xl hover:scale-105" onClick={() => window.location.assign('/teacher/home')}>Home</button>
+                                <button className="absolute left-5 text-black bg-gold p-2 rounded-xl hover:scale-105 hidden md:block" onClick={() => window.location.assign('/teacher/home')}>Home</button>
     
-                                <a class=" sm:w-2/5 md:w-3/5 lg:w-2/5 xl:w-1/5 block mx-auto" href="/teacher/home">
+                                <a class="sm:w-2/5 md:w-3/5 lg:w-2/5 xl:w-1/5 block mx-auto" href="/teacher/home">
                                     <img id="logo" src={Logo} class="block" alt="Responsive image" />
                                 </a>
                                 
-                                <button className="absolute right-5 text-black bg-gold p-2 rounded-xl hover:scale-105" onClick={logoutUser}>Log Out</button>
+                                <button className="absolute right-5 text-black bg-gold p-2 rounded-xl hover:scale-105 hidden md:block" onClick={logoutUser}>Log Out</button>
                                 
                         </nav>
         
@@ -53,15 +53,15 @@ export default function Nav() {
 
             <header>
     
-                    <nav class="fixed flex w-screen h-auto items-center justify-between flex-wrap bg-black p-3">
+                    <nav class="fixed flex w-screen h-auto items-center justify-between flex-wrap bg-black p-3 font-bold">
     
-                            <button className="absolute left-5 text-black bg-gold p-2 rounded-xl hover:scale-105" onClick={() => window.location.assign('/home')}>Home</button>
+                            <button className="absolute left-5 text-black bg-gold p-2 rounded-xl hover:scale-105 hidden md:block" onClick={() => window.location.assign('/home')}>Home</button>
 
                             <a class=" sm:w-2/5 md:w-3/5 lg:w-2/5 xl:w-1/5 block mx-auto" href="/">
                                 <img id="logo" src={Logo} class="block" alt="Responsive image" />
                             </a>
                             
-                            <button className="absolute right-5 text-black bg-gold p-2 rounded-xl hover:scale-105" onClick={logoutUser}>Log Out</button>
+                            <button className="absolute right-5 text-black bg-gold p-2 rounded-xl hover:scale-105 hidden md:block" onClick={logoutUser}>Log Out</button>
                             
                     </nav>
     

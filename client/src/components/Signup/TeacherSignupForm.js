@@ -90,11 +90,11 @@ export default function TeacherSignupForm(){
 
     return(
 
-        <div id="login-container" className="flex flex-col h-screen items-center justify-center">
+        <div id="login-container" className="flex flex-col h-screen items-center justify-center font-bold">
 
             {!showPasswordUpdateForm && (
 
-                    <form class="border-black border-4 rounded-lg w-auto xl:w-3/5 p-10 mx-auto mb-5 mt-20 shadow-lg" onSubmit={handleotpSubmit}>
+                    <form class="text-black border-black border-4 rounded-xl shadow-xl w-auto xl:w-3/5 p-10 mx-auto mb-8 mt-20" onSubmit={handleotpSubmit}>
 
                         <h1 className="text-center text-4xl mb-8">Teacher Verification</h1>
 
@@ -105,7 +105,7 @@ export default function TeacherSignupForm(){
                         </label>
                         </div>
                         <div class="md:w-2/3">
-                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="email" name="email" placeholder="Example@email.com" onChange={handleotpChange} />
+                        <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="email" name="email" placeholder="Example@email.com" onChange={handleotpChange} />
                         </div>
                     </div>
 
@@ -117,11 +117,11 @@ export default function TeacherSignupForm(){
                         </label>
                         </div>
                         <div class="md:w-2/3">
-                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="password" name="oneTimePassword" placeholder="******************" onChange={handleotpChange} />
+                        <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="password" name="oneTimePassword" placeholder="******************" onChange={handleotpChange} />
                         </div>
                     </div>
 
-                    <button class="shadow bg-gold text-black hover:bg-gold focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded w-4/5 block mx-auto" type="submit">
+                    <button class="border-2 border-black rounded-xl shadow-xl bg-gold text-black hover:bg-gold focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded w-4/5 block mx-auto" type="submit">
                             Verify
                         </button>
 
@@ -129,7 +129,7 @@ export default function TeacherSignupForm(){
 
             {showPasswordUpdateForm && (
 
-                    <form class="border-black border-4 rounded-lg w-auto xl:w-3/5 p-10 mx-auto mb-5 mt-20 shadow-lg" onSubmit={handleSignupSubmit}>
+                    <form class="text-black border-black border-4 rounded-xl shadow-xl w-auto xl:w-3/5 p-10 mx-auto mb-8 mt-20 shadow-lg" onSubmit={handleSignupSubmit}>
 
                         <h1 className="text-center text-4xl mb-8">Teacher Sign Up</h1>
 
@@ -140,7 +140,7 @@ export default function TeacherSignupForm(){
                         </label>
                         </div>
                         <div class="md:w-2/3">
-                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="email" name="email" placeholder="Example@email.com" onChange={handleChange} />
+                        <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="email" name="email" placeholder="Example@email.com" onChange={handleChange} />
                         </div>
                     </div>
 
@@ -152,7 +152,7 @@ export default function TeacherSignupForm(){
                         </label>
                         </div>
                         <div class="md:w-2/3">
-                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="password" name="password" placeholder="******************" onChange={handleChange} />
+                        <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="password" name="password" placeholder="******************" onChange={handleChange} />
                         </div>
                     </div>
 
@@ -163,11 +163,11 @@ export default function TeacherSignupForm(){
                         </label>
                         </div>
                         <div class="md:w-2/3">
-                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="password" name="passwordConfirm" placeholder="******************" onChange={handleChange} />
+                        <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="password" name="passwordConfirm" placeholder="******************" onChange={handleChange} />
                         </div>
                     </div>
 
-                    <button class="shadow bg-gold text-black hover:bg-gold focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded w-4/5 block mx-auto" type="submit">
+                    <button class="border-2 border-black rounded-xl shadow-xl bg-gold text-black hover:bg-gold focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded w-4/5 block mx-auto" type="submit">
                             Create Account
                         </button>
 
