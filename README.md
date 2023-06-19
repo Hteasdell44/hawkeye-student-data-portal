@@ -3,7 +3,13 @@
 
 ## Description
 
-This repository contains a Student Information Portal with a separate UI/UX for parents and teachers. After creating an account and verifying their child's ID number, parents can view their child's class schedule, grades, behavior report and live chat with teachers. Teachers can add grades, behavior reports, and live chat with parents.
+This repository contains a Student Information Portal with a separate UI/UX for parents and teachers. 
+
+After creating an account and verifying their child's school-provided ID number, parents can view their child's classes, their grades and assignment in each class, their most recent behavior report and live chat with teachers. 
+
+Teachers can view their students in each class and add new assignments, update grades, update behavior reports, and live chat with parents.
+
+![Screenshot 2023-06-19 at 7 02 39 PM](https://github.com/Hteasdell44/hawkeye-student-data-portal/assets/48537443/117f49f4-5006-4843-bade-fa1c3c3cc79f)
 
 ## Table of Contents
 
