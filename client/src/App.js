@@ -2,10 +2,11 @@ import { React } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
+import './css/App.css';
+
 import Nav from "./components/Reused/Nav";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Profile from "./pages/Profile";
 import ParentOptions from "./pages/ParentOptions";
 import StudentBehavior from "./pages/StudentBehavior";
 import ClassCatalog from "./pages/ClassCatalog";
@@ -19,6 +20,7 @@ import TeacherOptions from "./pages/TeacherOptions";
 import StudentAssignmentList from "./pages/StudentAssignmentList";
 import TeacherStudentBehavior from "./pages/TeacherStudentBehavior";
 import TeacherIndividualAssignment from "./pages/TeacherIndividualAssignment";
+import Footer from "./components/Reused/Footer";
 
 document.title = "Hawkeye Student Data Portal";
 
@@ -30,6 +32,7 @@ const App = () => {
     return(
 
         <QueryClientProvider client={queryClient}>
+
             <Nav />
 
                 <Router>
@@ -39,8 +42,6 @@ const App = () => {
                         <Route path="/" element={<Login />} />
 
                         <Route path="/signup" element={<Signup />} />
-
-                        <Route path="/profile" element={<Profile />} />
 
                         <Route path="/home" element={<ParentHome />} />    
 
@@ -71,6 +72,8 @@ const App = () => {
                     </Routes>
 
                 </Router>
+
+            <Footer />
 
         </QueryClientProvider>
 

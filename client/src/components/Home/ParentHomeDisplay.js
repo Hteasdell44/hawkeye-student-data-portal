@@ -58,13 +58,14 @@ export default function ParentHomeDisplay() {
 
             {data && data.map((student) => (
 
-            <a href={`/student/${student.id}`} className="border-2 border-black mb-8 p-10 rounded-xl shadow-xl hover:scale-105">
+            <a href={`/student/${student.id}`} className="font-bold text-xl text-center border-2 border-black mb-8 p-10 rounded-xl shadow-xl hover:scale-105">
 
                 <div key={student.id}>
 
                     <div className="">
                 
-                        <h1>{student.firstName} {student.lastName} -  {student.id} - {student.grade} Grade</h1>
+                        <h1>{student.firstName} {student.lastName} | <span className="text-gray-400">{student.id}</span></h1>
+                        <h1 className="mt-2 text-left">{student.grade} Grade</h1>
                 
                     </div>
 
@@ -73,15 +74,16 @@ export default function ParentHomeDisplay() {
             </a>
             ))}
 
-            {!showForm && (<button className="w-2/5 bg-gold text-black text-2xl p-8 rounded-xl shadow-2xl hover:scale-105" onClick={() => setShowForm(true)}>Add Student</button>)}
+            {!showForm && (<button className="border-2 border-black w-4/5 bg-gold text-black text-2xl p-8 rounded-xl shadow-2xl hover:scale-105 xl:w-1/4" onClick={() => setShowForm(true)}>Add Student</button>)}
+            {showForm && (<button className="border-2 border-black w-4/5 bg-gold text-black text-2xl p-8 mb-8 rounded-xl shadow-2xl hover:scale-105 xl:w-1/4" onClick={() => setShowForm(false)}>Cancel</button>)}
 
-            {showForm && (<form className="w-2/5" onSubmit={linkStudentToParent}>
+            {showForm && (<form className="w-4/5 xl:w-1/4" onSubmit={linkStudentToParent}>
 
                 
                 <div className="text-center border-2 border-gold p-8 rounded-xl shadow-2xl">
-                <h3 className="text-center mb-3">Enter Your Student's 7 Digit School ID Number</h3>
-                    <input type="number" name="studentId" className="bg-gray-100 rounded-xl w-1/2 p-3 mr-1" onChange={handleChange} placeholder="Example: 8630923"/>
-                    <button className="bg-gold rounded-xl shadow-2xl p-3 hover:scale-105" type="submit">Submit</button>
+                    <h3 className="text-center mb-3">Enter Your Student's 7 Digit School ID Number</h3>
+                    <input type="number" name="studentId" className="border-2 border-black bg-gray-100 rounded-xl w-3/5 p-3 mr-1 xl:w-1/2" onChange={handleChange} placeholder="Example: 8630923"/>
+                    <button className="border-2 border-black bg-gold rounded-xl shadow-2xl p-3 hover:scale-105" type="submit">Submit</button>
                 </div>
             </form>
             )}

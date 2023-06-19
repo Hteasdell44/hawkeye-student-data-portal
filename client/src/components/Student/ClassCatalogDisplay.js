@@ -43,19 +43,21 @@ export default function ClassCatalogDisplay() {
 
     return (
 
-        <div className="flex flex-col h-screen items-center ">
+        <div className="flex flex-col h-full items-center ">
 
-            {studentData &&(<h1 className="mt-40 text-center text-4xl mb-28 font-bold">{studentData.firstName}'s Classes:</h1>)}
+            {studentData &&(<h1 className="mt-40 text-center text-4xl mb-8 font-bold">{studentData.firstName}'s Classes:</h1>)}
 
             {classData && classData.map((classInstance, i) => (
 
-                <a href={`/student/${studentData.id}/classes/${classInstance.id}`} className="border-2 border-black mb-8 p-10 rounded-xl shadow-xl hover:scale-105">
+                <a href={`/student/${studentData.id}/classes/${classInstance.id}`} className="w-4/5 text-center text-xl font-bold border-2 border-black mb-8 p-10 rounded-xl shadow-xl hover:scale-105 xl:w-1/4">
                 
                     <div key={classInstance.id}>
 
                         <div className="">
                     
-                            {teacherData && (<h1>{classInstance.name} - {teacherData[i].prefix} {teacherData[i].lastName}</h1>)}
+                            <h1><span>{classInstance.name}</span></h1>
+
+                            {teacherData && (<h1 className="mt-2">{teacherData[i].prefix} {teacherData[i].lastName}</h1>)}
                     
                             
                         </div>

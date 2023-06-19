@@ -56,9 +56,9 @@ export default function SignupForm(){
 
         <div id="login-container" className="flex flex-col h-screen items-center justify-center">
 
-            <form class="border-black border-4 rounded-lg w-auto xl:w-3/5 p-10 mx-auto mb-5 mt-20 shadow-lg" onSubmit={handleSignupSubmit}>
+            <form class="border-black border-4 rounded-xl shadow-xl font-bold text-black w-auto xl:w-3/5 p-10 mx-auto mb-5 mt-20 shadow-lg" onSubmit={handleSignupSubmit}>
 
-                <h1 className="text-center text-4xl mb-8">Sign Up</h1>
+                <h1 className="text-center text-4xl mb-8">Parent Sign Up</h1>
 
             <div class="md:flex md:items-center mb-6">
                 <div class="md:w-1/5">
@@ -67,7 +67,7 @@ export default function SignupForm(){
                 </label>
                 </div>
                 <div class="md:w-2/3">
-                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="text" name="firstName" placeholder="John" onChange={handleChange}/>
+                <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="text" name="firstName" placeholder="John" onChange={handleChange}/>
                 </div>
             </div>
 
@@ -78,7 +78,7 @@ export default function SignupForm(){
                 </label>
                 </div>
                 <div class="md:w-2/3">
-                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="text" name="lastName" placeholder="Appleseed" onChange={handleChange} />
+                <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="text" name="lastName" placeholder="Appleseed" onChange={handleChange} />
                 </div>
             </div>
 
@@ -89,7 +89,7 @@ export default function SignupForm(){
                 </label>
                 </div>
                 <div class="md:w-2/3">
-                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="email" name="email" placeholder="Example@email.com" onChange={handleChange} />
+                <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="email" name="email" placeholder="Example@email.com" onChange={handleChange} />
                 </div>
             </div>
 
@@ -101,7 +101,7 @@ export default function SignupForm(){
                 </label>
                 </div>
                 <div class="md:w-2/3">
-                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="password" name="password" placeholder="******************" onChange={handleChange} />
+                <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="password" name="password" placeholder="******************" onChange={handleChange} />
                 </div>
             </div>
 
@@ -112,17 +112,17 @@ export default function SignupForm(){
                 </label>
                 </div>
                 <div class="md:w-2/3">
-                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="password" name="passwordConfirm" placeholder="******************" onChange={handleChange} />
+                <input class="bg-gray-200 appearance-none border-2 border-black rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-black" type="password" name="passwordConfirm" placeholder="******************" onChange={handleChange} />
                 </div>
             </div>
 
-            <button class="shadow bg-gold text-black hover:bg-gold focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded w-4/5 block mx-auto" type="submit">
+            <button class="border-2 border-black rounded-xl shadow-xl bg-gold text-black hover:bg-gold focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded w-4/5 block mx-auto hover:scale-105" type="submit">
                     Create Account
                 </button>
 
             </form>
 
-            <div class="text-center">
+            <div class="text-center font-bold">
                     <p>Already Have An Account? <a href="/" className="text-gold underline">Login Now</a></p>
                     <p className="mt-5">Are You A Teacher? <a href="/teacher/login" className="text-gold underline">Login Now</a></p>
 

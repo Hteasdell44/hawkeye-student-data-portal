@@ -23,7 +23,6 @@ StudentClassAssignment.init(
 
     assignmentGrade: {
         type: DataTypes.INTEGER,
-        allowNull: false,
     }
   },
 
