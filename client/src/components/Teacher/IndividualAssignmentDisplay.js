@@ -15,29 +15,21 @@ export default function IndividualAssignmentDisplay() {
 
     const getCurrentStudent = async () => {
 
-        const currentStudent = await axios.post('/current-student', {
-            studentId: studentId
-        });
+        const currentStudent = await axios.get(`/current-student/${studentId}`);
 
         return currentStudent.data;
     };
 
     const getCurrentClassName = async () => {
 
-        const currentClass = await axios.post('/teacher/current-class-name', {
-            classId: classId
-        });
+        const currentClass = await axios.get(`/teacher/current-class-name/${classId}`);
 
         return currentClass.data;
     };
 
     const getCurrentAssignment = async () => {
 
-        const currentAssignment = await axios.post('/teacher/current-assignment', {
-            classId: classId,
-            studentId: studentId,
-            assignmentId: assignmentId
-        });
+        const currentAssignment = await axios.get(`/teacher/current-assignment/${classId}/${studentId}/${assignmentId}`);
 
         return currentAssignment.data;
     }
@@ -62,7 +54,7 @@ export default function IndividualAssignmentDisplay() {
 
         event.preventDefault();
 
-        const updatedAssignment = await axios.post('/teacher/update-assignment-name', {
+        const updatedAssignment = await axios.patch('/teacher/update-assignment-name', {
             assignmentId: assignmentId,
             newAssignmentName: nameUpdateFormState.newAssignmentName
         });
@@ -74,7 +66,7 @@ export default function IndividualAssignmentDisplay() {
 
         event.preventDefault();
 
-        const updatedAssignment = await axios.post('/teacher/update-assignment-grade', {
+        const updatedAssignment = await axios.patch('/teacher/update-assignment-grade', {
             studentId: studentId,
             classId: classId,
             assignmentId: assignmentId,

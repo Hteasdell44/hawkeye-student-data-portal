@@ -12,9 +12,7 @@ export default function TeacherStudentBehaviorDisplay() {
 
     const getCurrentStudent = async () => {
 
-        const currentStudent = await axios.post('/current-student',{
-            studentId: studentId
-        });
+        const currentStudent = await axios.get(`/current-student/${studentId}`);
 
         return currentStudent.data;
     }
@@ -31,7 +29,7 @@ export default function TeacherStudentBehaviorDisplay() {
 
         event.preventDefault();
 
-        const updatedStudent = await axios.post('/teacher/update-behavior-report', {
+        const updatedStudent = await axios.patch('/teacher/update-behavior-report', {
             studentId: studentId,
             newBehaviorReport: formState.newBehaviorReport
         });

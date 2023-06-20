@@ -8,9 +8,7 @@ export default function OptionsDisplay() {
 
     const getCurrentStudent = async () => {
 
-        const currentStudent = await axios.post('/current-student',{
-            studentId: id
-        });
+        const currentStudent = await axios.get(`/current-student/${id}`);
 
         return currentStudent.data;
     }

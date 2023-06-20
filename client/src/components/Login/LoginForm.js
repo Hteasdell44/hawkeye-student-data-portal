@@ -28,8 +28,6 @@ export default function LoginForm() {
             password: formState.loginPassword,
         });
 
-        console.log(verifiedParent.data);
-
         if (AuthService.isJWT(verifiedParent.data)) {
 
             AuthService.login(JSON.stringify(verifiedParent.data));

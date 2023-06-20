@@ -2,3 +2,7 @@ a:hover h1 span {
 
     color: #ffd700;
 }
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}

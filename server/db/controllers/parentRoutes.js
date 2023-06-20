@@ -9,19 +9,6 @@ const Class = require('../../models/Class');
 const Teacher = require('../../models/Teacher');
 const { TeacherClass, StudentClassAssignment, Assignment } = require('../../models');
 
-router.post('/determine-user-type', async (req, res) => {
-
-  const isParent = await Parent.findOne({ where: { email: req.body.email }});
-
-  if (!isParent) {
-
-    res.send("teacher");
-    return;
-  }
-
-  res.send("parent");
-  
-});
 
 router.post('/signup', async (req, res) => {
 
@@ -88,9 +75,23 @@ router.post('/add-student', async (req, res) => {
   
 });
 
-router.post('/parents-students', async (req, res) => {
+router.get('/determine-user-type/:email', async (req, res) => {
 
-  const studentIds = await ParentStudent.findAll({ where: { parentEmail: req.body.parentEmail }});
+  const isParent = await Parent.findOne({ where: { email: req.params.email }});
+
+  if (!isParent) {
+
+    res.send("teacher");
+    return;
+  }
+
+  res.send("parent");
+  
+});
+
+router.get('/parents-students/:parentEmail', async (req, res) => {
+
+  const studentIds = await ParentStudent.findAll({ where: { parentEmail: req.params.parentEmail }});
 
   let studentArr = [];
 
@@ -109,16 +110,16 @@ router.post('/parents-students', async (req, res) => {
 
 });
 
-router.post('/current-student', async (req, res) => {
+router.get('/current-student/:studentId', async (req, res) => {
 
-  const currentStudent = await Student.findOne({ where: { id: req.body.studentId}})
+  const currentStudent = await Student.findOne({ where: { id: req.params.studentId}})
   res.send(currentStudent);
 
 });
 
-router.post('/current-student-classes', async (req, res) => {
+router.get('/current-student-classes/:studentId', async (req, res) => {
 
-  const studentsClasses = await StudentClass.findAll({ where: { studentId: req.body.studentId }});
+  const studentsClasses = await StudentClass.findAll({ where: { studentId: req.params.studentId }});
 
   let classArr = [];
 
@@ -137,9 +138,9 @@ router.post('/current-student-classes', async (req, res) => {
 
 });
 
-router.post('/current-student-classes-teachers', async (req, res) => {
+router.get('/current-student-classes-teachers/:studentId', async (req, res) => {
 
-  const studentsClasses = await StudentClass.findAll({ where: { studentId: req.body.studentId }});
+  const studentsClasses = await StudentClass.findAll({ where: { studentId: req.params.studentId }});
   console.log(studentsClasses);
 
   let classArr = [];
@@ -168,13 +169,13 @@ router.post('/current-student-classes-teachers', async (req, res) => {
 
 });
 
-router.post('/get-student-assignments', async (req, res) => {
+router.get('/get-student-assignments/:studentId/:classId', async (req, res) => {
 
   let assignmentsList = [];
 
   const assignmentRefs = await StudentClassAssignment.findAll({ where: { [Op.and]: [
-    { studentId: req.body.studentId },
-    { classId: req.body.classId }
+    { studentId: req.params.studentId },
+    { classId: req.params.classId }
   ]}});
 
   for (let i = 0; i < assignmentRefs.length; i++) {
