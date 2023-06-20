@@ -8,28 +8,21 @@ export default function StudentAssignmentListDisplay() {
 
     const getCurrentStudent = async () => {
 
-        const currentStudent = await axios.post('/current-student', {
-            studentId: studentId
-        });
+        const currentStudent = await axios.get(`/current-student/${studentId}`);
 
         return currentStudent.data;
     };
 
     const getCurrentClassName = async () => {
 
-        const currentClass = await axios.post('/teacher/current-class-name', {
-            classId: classId
-        });
+        const currentClass = await axios.get(`/teacher/current-class-name/${classId}`);
 
         return currentClass.data;
     };
 
     const getAssignments = async () => {
 
-        const assignmentList = await axios.post('/get-student-assignments', {
-            studentId: studentId,
-            classId: classId,
-        });
+        const assignmentList = await axios.get(`/get-student-assignments/${studentId}/${classId}`);
 
         return assignmentList;
     }

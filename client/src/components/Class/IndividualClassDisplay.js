@@ -21,18 +21,14 @@ export default function IndividualClassDisplay() {
 
     const getCurrentClassName = async () => {
 
-        const currentClass = await axios.post('/teacher/current-class-name', {
-            classId: classId
-        });
+        const currentClass = await axios.get(`/teacher/current-class-name/${classId}`);
 
         return currentClass.data;
     };
 
     const getCurrentClassesStudents = async () => {
 
-        const studentsList = await axios.post('/teacher/current-classes-students', {
-            classId: classId
-        });
+        const studentsList = await axios.get(`/teacher/current-classes-students/${classId}`);
 
         return studentsList.data;
     };

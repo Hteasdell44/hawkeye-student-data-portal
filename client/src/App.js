@@ -22,14 +22,17 @@ import TeacherStudentBehavior from "./pages/TeacherStudentBehavior";
 import TeacherIndividualAssignment from "./pages/TeacherIndividualAssignment";
 import Footer from "./components/Reused/Footer";
 
-document.title = "Hawkeye Student Data Portal";
 
 const queryClient = new QueryClient();
 
 
 const App = () => {
 
+    
+
     return(
+
+        
 
         <QueryClientProvider client={queryClient}>
 

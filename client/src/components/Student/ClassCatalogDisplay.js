@@ -8,27 +8,21 @@ export default function ClassCatalogDisplay() {
 
     const getCurrentStudent = async () => {
 
-        const currentStudent = await axios.post('/current-student',{
-            studentId: id
-        });
+        const currentStudent = await axios.get(`/current-student/${id}`);
 
         return currentStudent.data;
     }
 
     const getCurrentStudentsClasses = async () => {
 
-        const studentsClasses = await axios.post('/current-student-classes', {
-            studentId: id
-        });
+        const studentsClasses = await axios.get(`/current-student-classes/${id}`);
 
         return studentsClasses.data;
     }
 
     const getCurrentStudentsClassesTeacher = async () => {
 
-        const teachers = await axios.post('/current-student-classes-teachers', {
-            studentId: id
-        }); 
+        const teachers = await axios.get(`/current-student-classes-teachers/${id}`); 
 
         return teachers.data;
     }

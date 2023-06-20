@@ -15,9 +15,7 @@ export default function Nav() {
 
     const determineUserType = async () => {
 
-        const userType = await axios.post('/determine-user-type', {
-            email: AuthService.getProfile().data.email,
-        });
+        const userType = await axios.get(`/determine-user-type/${AuthService.getProfile().data.email}`);
 
         setUserType(userType.data);
     }

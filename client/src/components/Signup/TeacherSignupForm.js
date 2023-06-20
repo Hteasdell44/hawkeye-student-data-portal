@@ -40,10 +40,7 @@ export default function TeacherSignupForm(){
 
         setSignupError("");
 
-        const verifiedTeacher = await axios.post('/teacher/verify-otp', {
-            email: otpFormState.email.toLowerCase(),
-            oneTimePassword: otpFormState.oneTimePassword,
-        });
+        const verifiedTeacher = await axios.get(`/teacher/verify-otp/${otpFormState.email.toLowerCase()}/${otpFormState.oneTimePassword}`);
 
         if (verifiedTeacher.data) {
 
@@ -67,7 +64,7 @@ export default function TeacherSignupForm(){
             return;
         }
 
-        const updatedTeacher = await axios.post('/teacher/update-password', {
+        const updatedTeacher = await axios.patch('/teacher/update-password', {
             email: formState.email.toLowerCase(),
             password: formState.password,
         });
