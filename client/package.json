@@ -17,8 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:tailwind": "postcss src/index.css -o src/tailwind.generated.css",
-    "watch:tailwind": "postcss -w src/index.css -o src/tailwind.generated.css",
+    "build:tailwind": "postcss src/css/index.css -o src/tailwind.generated.css",
+    "watch:tailwind": "postcss -w src/css/index.css -o src/tailwind.generated.css",
     "dev": "run-p watch:tailwind start",
     "prebuild": "npm run build:tailwind"
   },
@@ -42,7 +42,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
     "tailwindcss": "^3.3.2"
   },
   "proxy": "http://localhost:3306"
